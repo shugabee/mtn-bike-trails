@@ -5,7 +5,9 @@ import "./Header.css";
 const Header = () => {
   return (
     <header>
-      <Link to="/">MainPage</Link>
+      <Link style={{ textDecoration: "none", color: 'tan'}} to="/">
+        MainPage
+      </Link>
     </header>
   );
 }

@@ -17,6 +17,12 @@ const MainPage = () => {
           <button>Sign In</button>
         </Link>
       </div>
+
+      <div>
+        <Link to="/register">
+          <button>Register</button>
+        </Link>
+      </div>
       <div>
         <Footer />
       </div>
