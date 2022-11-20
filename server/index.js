@@ -68,16 +68,54 @@ app.post("/auth/register", async (req, res) => {
   res.status(200).send(user);
 });
 
-app.post("/auth/login", async (req, res) => {
+app.post("/auth/login", function (req, res) {
   const { username, password } = req.body;
 
-  const user = await sequelize
-    .query(
-      `
+  const user = sequelize
+    .query(`
   SELECT * FROM users 
   WHERE username = '${username}' 
-  `
-    )
+  `)
+
+  .then(function (user) {
+    if (!user) {
+      return res.status(400).send("User does not exist");
+    } else {
+      let hash = user[0].password
+      bcrypt.compare(password, hash, function (areSame) {
+        if (areSame) {
+          req.user = {
+            username,
+            userId: user.id
+          }
+          res.status(200).send(req.user);
+        } else {
+          res.send('incorrect password')
+        }
+      })
+    }
+  })
+});
+  
+//   .then(user => {
+//     let hash = user[0].password;
+//     console.log(user[0]);
+//     bcrypt.compare(password, hash).then(areSame => {
+//       if(areSame) {
+//         req.session.user = {
+//           username
+//         }
+//         res.status(200).send(req.session.user);
+//       } else {
+//         res.status(401).send({error: "username or password is incorrect"
+//       })
+//       }
+//     })
+//   })
+// });
+
+
+
   //   .then((user) => {
   //     let hash = user[0].password;
 
@@ -98,23 +136,23 @@ app.post("/auth/login", async (req, res) => {
   // });
 
    
-      if (!user[0]) {
-        return res.status(400).send("User does not exist");
-      } else {
-        let hash = user[0].password
-        const authenticated = bcrypt.compareSync(password, hash);
-        if (authenticated) {
-          req.session.user = {
-            username
-            // userId: user[0].id,
-            // username: user[0].username,
-          };
-          res.status(200).send(req.session.user);
-        } else {
-          res.status(403).send("Username or Password is incorrect");
-        }
-      }
-  });
+  //     if (!user[0]) {
+  //       return res.status(400).send("User does not exist");
+  //     } else {
+  //       let hash = user[0].password
+  //       const authenticated = bcrypt.compareSync(password, hash);
+  //       if (authenticated) {
+  //         req.session.user = { 
+  //           userId: user[0].id,
+  //           username: user[0].username,
+  //         };
+  //         res.status(200).send(req.session.user);
+  //         console.log(req.session.user)
+  //       } else {
+  //         res.status(401).send("Username or Password is incorrect");
+  //       }
+  //     }
+  // });
 
  
 

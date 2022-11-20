@@ -5,7 +5,7 @@ import TrailInfo from '../TrailInfo/TrailInfo'
 
 const NoteDisplay = ( {trail_note} ) => {
 
-    console.log("test", {trail_note} )
+    console.log({trail_note})
     const deleteNote = () => {
       axios
         .delete(`http://localhost:8080/api/deleteNote/${trail_note.id}`)

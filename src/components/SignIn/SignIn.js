@@ -2,10 +2,14 @@ import React, { useState } from "react";
 import Header from "../Header/Header";
 import Footer from "../Footer/Footer";
 import axios from "axios";
+import { useNavigate } from "react-router-dom";
+
 
 const SignIn = () => {
   const [username, setUserName] = useState("");
   const [password, setPassword] = useState("");
+  const [redirect, setRedirect] = useState(false);
+  const navigate = useNavigate();
 
   const changeHandlerUsername = (event) => {
     setUserName(event.target.value);
@@ -17,18 +21,18 @@ const SignIn = () => {
 
   const handleSignIn = (event) => {
     event.preventDefault();
-    const user = { username, password };
+    const user = { username:username, password:password };
     axios
       .post("http://localhost:8080/auth/login", user)
       .then((res) => {
         console.log(res.data);
-        console.log("we successfully logged in")
-        setUserName("");
-        setPassword("");
+        // navigate("/profilePage");
+        // setUserName("");
+        // setPassword("");
       })
-      .catch((error) =>
+      .catch((error) => {
         alert(error, "Sorry, Username or Password is incorrect")
-      );
+      })
   };
 
   return (

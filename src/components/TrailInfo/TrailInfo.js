@@ -8,6 +8,7 @@ const TrailInfo = ({ trail }) => {
   const [textInput, setTextInput] = useState("");
   const [trailNote, setTrailNote] = useState([]);
 
+
   useEffect(() => {
     getTrailNote();
   }, []);
@@ -61,6 +62,8 @@ const TrailInfo = ({ trail }) => {
         />
         <button onClick={addNote}>Add Note</button>
       </div>
+
+
 
       <section>
         {/* {trailNote.length > 0 &&
