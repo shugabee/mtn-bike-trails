@@ -37,7 +37,7 @@ app.post("/api/addNote", async (req, res) => {
 
 app.get("/api/getNote/:id", async (req, res) => {
   const notes = await sequelize.query(`
-  select trail_note from trail_notes
+  select * from trail_notes
   where trail_id = '${req.params.id}'
   `);
   res.status(200).send(notes[0]);
