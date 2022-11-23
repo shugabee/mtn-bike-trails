@@ -10,7 +10,7 @@ const NoteList = ({ notes }) => {
           notes.map(( {trail_note, datetime}) => {
             return <NoteDisplay 
             key={trail_note.id} trail_note={trail_note} 
-            datetime={datetime}
+            key= {datetime} datetime={datetime}
             />;
           })
           }
