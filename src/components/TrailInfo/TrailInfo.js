@@ -1,6 +1,6 @@
 import axios from "axios";
 import React, { useState, useEffect } from "react";
-import NoteDisplay from "../NoteDisplay/NoteDisplay";
+import Note from "../Note/Note";
 import NoteList from "../NoteList/NoteList";
 import "./TrailInfo.css";
 
@@ -25,7 +25,11 @@ const TrailInfo = ({ trail }) => {
   };
 
   const addNote = () => {
-    const body = { trailNote: textInput, trailId: trail.id };
+    const body = { 
+      trailNote: textInput, 
+      trailId: trail.id,
+      userId: user.id
+    };
     axios
       .post("http://localhost:8080/api/addNote", body)
       .then((res) => {
@@ -68,12 +72,7 @@ const TrailInfo = ({ trail }) => {
             <p key={trail_note}>{trail_note}</p>
           ))} */}
 
-          <NoteList notes={trailNote}/>
-          
-          {/* {trailNote.length > 0 && 
-          trailNote.map(( {trail_note} ) => {
-            return <NoteDisplay key={trail_note.id} trail_note={trail_note} />;
-          })} */}
+          <NoteList getTrailNote={getTrailNote} notes={trailNote}/>
 
 
       </section>

@@ -26,7 +26,7 @@ const SignIn = () => {
       .post("http://localhost:8080/auth/login", user)
       .then((res) => {
         console.log(res.data);
-        // navigate("/profilePage");
+        navigate("/profilePage");
         // setUserName("");
         // setPassword("");
       })

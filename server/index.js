@@ -3,7 +3,6 @@ const bcrypt = require("bcrypt");
 const express = require("express");
 const cors = require("cors");
 const { Sequelize } = require("sequelize");
-const { ErrorResponse } = require("@remix-run/router");
 const app = express();
 
 const { SERVER_PORT, CONNECTION_STRING } = process.env;
@@ -47,10 +46,16 @@ app.delete("/api/deleteNote/:id", async (req, res) => {
   await sequelize.query(`
   DELETE 
   FROM trail_notes
-  WHERE trail_notes.id = '${req.params}'
+  WHERE trail_notes.id = '${req.params.id}'
   `);
   res.sendStatus(200);
 });
+
+// app.put("/api/editNote/:id", async (req, res) => {
+//   await sequelize.query(`
+//   UPDATE 
+//   `)
+// }
 
 app.post("/auth/register", async (req, res) => {
   const { username, password } = req.body;
@@ -77,18 +82,21 @@ app.post("/auth/login", function (req, res) {
   WHERE username = '${username}' 
   `)
 
-  .then(function (user) {
-    if (!user) {
+  .then(function (dbResponse) {
+    const user = dbResponse[0]
+    if (!user.length) {
       return res.status(400).send("User does not exist");
     } else {
       let hash = user[0].password
-      bcrypt.compare(password, hash, function (areSame) {
+      console.log(user)
+      bcrypt.compare(password, hash).then(areSame => {
+        console.log({areSame})
         if (areSame) {
-          req.user = {
+          let userResponse = {
             username,
-            userId: user.id
+            userId: user[0].id
           }
-          res.status(200).send(req.user);
+          res.status(200).send(userResponse);
         } else {
           res.send('incorrect password')
         }

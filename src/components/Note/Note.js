@@ -3,14 +3,23 @@ import axios from 'axios';
 import { AiOutlineEdit, AiOutlineDelete } from "react-icons/ai";
 
 
-const NoteDisplay = ( {trail_note, datetime }) => {
-  
+const Note = ({notes, getTrailNote}) => {
+
+  const editNote = () => {
+    axios
+    .put(`http://localhost:8080/api/editNote/${notes[0].id}`)
+    .then((res) => {
+      console.log(res.data)
+
+    })
+    .catch((error) => console.log(error))
+  }
 
   const deleteNote = () => {
   axios
-    .delete(`http://localhost:8080/api/deleteNote/${trail_note}`)
+    .delete(`http://localhost:8080/api/deleteNote/${notes[0].id}`)
     .then((res) => {
-        console.log(res.data)
+        getTrailNote();
         alert("Your note was deleted");
     })
     .catch((error) => console.log(error));
@@ -19,10 +28,10 @@ const NoteDisplay = ( {trail_note, datetime }) => {
   return (
     <div>
       <div className='header'>
-        <span>{datetime}</span>
+        <span>{notes[0].datetime}</span>
       </div>
-      <p>{trail_note}</p>
-      <button>
+      <p>{notes[0].trail_note}</p>
+      <button onClick={editNote}>
         <AiOutlineEdit />
       </button>
       <button onClick={deleteNote}>
@@ -32,7 +41,7 @@ const NoteDisplay = ( {trail_note, datetime }) => {
   );
 }
 
-export default NoteDisplay
+export default Note
 
 
 

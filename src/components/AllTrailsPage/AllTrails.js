@@ -31,11 +31,13 @@ const AllTrails = () => {
   return (
     <div>
       <Header />
+
       <div className="trail-container">
         {allTrails.map((t, i) => {
           return <TrailInfo key={t.id} trail={t} />;
         })}
       </div>
+      
       <Footer />
     </div>
   );
