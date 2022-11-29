@@ -42,7 +42,7 @@ const ProfilePage = () => {
           <button>Favorite Trails</button>
         </Link>
         <Link to="/trailsToTry">
-          <button>Trails to Try</button>
+          <button>To do list</button>
         </Link>
       </nav>
 

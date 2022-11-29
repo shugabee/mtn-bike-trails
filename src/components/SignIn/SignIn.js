@@ -3,9 +3,11 @@ import Header from "../Header/Header";
 import Footer from "../Footer/Footer";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
+import { connect } from 'react-redux';
+import { setUserId } from "../../redux/userReducer";
 
 
-const SignIn = () => {
+const SignIn = ({setUserId}) => {
   const [username, setUserName] = useState("");
   const [password, setPassword] = useState("");
   const [redirect, setRedirect] = useState(false);
@@ -26,12 +28,12 @@ const SignIn = () => {
       .post("http://localhost:8080/auth/login", user)
       .then((res) => {
         console.log(res.data);
+        setUserId(res.data.userId);
         navigate("/profilePage");
-        // setUserName("");
-        // setPassword("");
+       
       })
       .catch((error) => {
-        alert(error, "Sorry, Username or Password is incorrect")
+        alert("Sorry, Username or Password is incorrect")
       })
   };
 
@@ -73,4 +75,4 @@ const SignIn = () => {
   );
 };
 
-export default SignIn;
+export default connect(undefined, {setUserId})(SignIn);

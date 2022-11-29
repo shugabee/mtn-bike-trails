@@ -21,23 +21,25 @@ const sequelize = new Sequelize(CONNECTION_STRING, {
 
 let newTrailNote = {};
 app.post("/api/addNote", async (req, res) => {
-  const { trailNote, trailId } = req.body;
+  const { trailNote, trailId, userId } = req.body;
 
   await sequelize.query(`
   insert into trail_notes (
-    trail_note, trail_id
+    trail_note, trail_id, user_id
   ) values (
-    '${trailNote}', '${trailId}'
+    '${trailNote}', '${trailId}', '${userId}'
   )
   `);
   newTrailNote = req.body;
   res.status(200).send(req.body);
 });
 
-app.get("/api/getNote/:id", async (req, res) => {
+app.get("/api/getNote/:id/:userId", async (req, res) => {
+  console.log(req.params)
   const notes = await sequelize.query(`
   select * from trail_notes
   where trail_id = '${req.params.id}'
+  AND user_id = '${req.params.userId}'
   `);
   res.status(200).send(notes[0]);
 });
@@ -98,7 +100,7 @@ app.post("/auth/login", function (req, res) {
           }
           res.status(200).send(userResponse);
         } else {
-          res.send('incorrect password')
+          res.status(401).send('incorrect password')
         }
       })
     }

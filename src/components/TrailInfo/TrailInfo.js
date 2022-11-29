@@ -2,10 +2,11 @@ import axios from "axios";
 import React, { useState, useEffect } from "react";
 import Note from "../Note/Note";
 import NoteList from "../NoteList/NoteList";
+import { connect } from "react-redux";
 import "./TrailInfo.css";
 
 
-const TrailInfo = ({ trail }) => {
+const TrailInfo = ({ trail, userId }) => {
   const [textInput, setTextInput] = useState("");
   const [trailNote, setTrailNote] = useState([]);
 
@@ -19,7 +20,8 @@ const TrailInfo = ({ trail }) => {
   };
 
   const getTrailNote = () => {
-    axios.get(`http://localhost:8080/api/getNote/${trail.id}`).then((res) => {
+    console.log(userId)
+    axios.get(`http://localhost:8080/api/getNote/${trail.id}/${userId}`).then((res) => {
       setTrailNote(res.data);
     });
   };
@@ -28,7 +30,7 @@ const TrailInfo = ({ trail }) => {
     const body = { 
       trailNote: textInput, 
       trailId: trail.id,
-      userId: user.id
+      userId
     };
     axios
       .post("http://localhost:8080/api/addNote", body)
@@ -85,4 +87,4 @@ const TrailInfo = ({ trail }) => {
   );
 };
 
-export default TrailInfo;
+export default connect(state => state)(TrailInfo);
