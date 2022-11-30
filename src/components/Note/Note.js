@@ -6,13 +6,14 @@ import { AiOutlineEdit, AiOutlineDelete } from "react-icons/ai";
 const Note = ({notes, getTrailNote}) => {
 
   const editNote = () => {
-    axios
-    .put(`http://localhost:8080/api/editNote/${notes[0].id}`)
-    .then((res) => {
-      console.log(res.data)
+    
+    // axios
+    // .put(`http://localhost:8080/api/editNote/${notes[0].id}`)
+    // .then((res) => {
+    //   console.log(res.data)
 
-    })
-    .catch((error) => console.log(error))
+    // })
+    // .catch((error) => console.log(error))
   }
 
   const deleteNote = () => {

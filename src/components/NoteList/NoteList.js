@@ -10,7 +10,7 @@ const NoteList = ({ notes, getTrailNote }) => {
             return <Note 
             // key={trail_note.id} trail_note={trail_note} 
             // key= {datetime} datetime={datetime}
-            key={notes.id} notes={notes} getTrailNote={getTrailNote}
+            key={notes} notes={notes} getTrailNote={getTrailNote}
             />;
           })
           }

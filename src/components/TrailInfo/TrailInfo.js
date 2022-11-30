@@ -1,9 +1,11 @@
 import axios from "axios";
 import React, { useState, useEffect } from "react";
-import Note from "../Note/Note";
 import NoteList from "../NoteList/NoteList";
 import { connect } from "react-redux";
 import "./TrailInfo.css";
+import { AiFillHeart } from "react-icons/ai";
+import { BiListPlus } from "react-icons/bi";
+
 
 
 const TrailInfo = ({ trail, userId }) => {
@@ -20,7 +22,7 @@ const TrailInfo = ({ trail, userId }) => {
   };
 
   const getTrailNote = () => {
-    console.log(userId)
+    // console.log(userId)
     axios.get(`http://localhost:8080/api/getNote/${trail.id}/${userId}`).then((res) => {
       setTrailNote(res.data);
     });
@@ -42,6 +44,21 @@ const TrailInfo = ({ trail, userId }) => {
       .catch((error) => {
         console.log(error);
       });
+  };
+
+  const addToFavorite = () => {
+    const body = {
+      trailId: trail.id,
+      userId 
+    };
+    axios.post("http://localhost:8080/api/addToFavorites", body)
+    .then((res) => {
+      console.log(res.data);
+      alert("Your trail was added to favorites!")
+    })
+    .catch((error) => {
+      console.log(error);
+    });
   };
 
 
@@ -75,13 +92,17 @@ const TrailInfo = ({ trail, userId }) => {
           ))} */}
 
           <NoteList getTrailNote={getTrailNote} notes={trailNote}/>
-
-
       </section>
 
+        
       <div>
-        {/* <button>Add to favorites</button> */}
-        {/* <button>Add to trails to try</button> */}
+      <button onClick={addToFavorite}>
+        <AiFillHeart />
+      </button>
+      <button>
+        <BiListPlus />
+      </button>
+       
       </div>
     </div>
   );

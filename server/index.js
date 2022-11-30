@@ -55,9 +55,34 @@ app.delete("/api/deleteNote/:id", async (req, res) => {
 
 // app.put("/api/editNote/:id", async (req, res) => {
 //   await sequelize.query(`
-//   UPDATE 
-//   `)
+//   UPDATE trail_notes
+//   SET trail_note = new trail note state
+//   WHERE trail_notes.id = '${req.params.id}'
+//   `);
 // }
+
+app.post("/api/addToFavorites", async (req, res) => {
+  const { userId, trailId } = req.body;
+
+  await sequelize.query(`
+  insert into favorite_trails (
+    user_id, trail_id
+  ) values (
+    '${userId}', '${trailId}'
+  )
+  `);
+  res.sendStatus(200);
+});
+
+app.get("/api/getFavoriteTrails/:userId", async (req, res) => {
+  await sequelize.query(`
+  SELECT * FROM favorite_trails
+  WHERE user_id = '${req.params.userId}'
+  `);
+  res.sendStatus(200);
+})
+
+
 
 app.post("/auth/register", async (req, res) => {
   const { username, password } = req.body;

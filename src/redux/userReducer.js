@@ -4,7 +4,6 @@ const initialState = {
 };
 
 
-
 const SET_USER_ID = "SET_USER_ID";
 
 export const setUserId = (id) => {
@@ -13,9 +12,6 @@ export const setUserId = (id) => {
         payload: id
     }
 }
-
-
-
 
 
 

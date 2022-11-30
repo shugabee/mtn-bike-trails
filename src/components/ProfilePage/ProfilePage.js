@@ -2,6 +2,7 @@ import React, {useState, useEffect} from "react";
 import Header from "../Header/Header";
 import Footer from "../Footer/Footer";
 import TrailInfo from "../TrailInfo/TrailInfo";
+import Nav from "../Nav/Nav";
 import { Link } from "react-router-dom";
 import axios from "axios";
 import "./ProfilePage.css";
@@ -36,15 +37,9 @@ const ProfilePage = () => {
       <div>
         <Header />
       </div>
-
-      <nav>
-        <Link to="/favoriteTrails">
-          <button>Favorite Trails</button>
-        </Link>
-        <Link to="/trailsToTry">
-          <button>To do list</button>
-        </Link>
-      </nav>
+      <div>
+        <Nav />
+      </div>
 
       <div className="profile-page-title-container">
         <h4>Profile Page</h4>

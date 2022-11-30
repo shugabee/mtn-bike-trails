@@ -1,21 +1,21 @@
 import React, { useEffect } from 'react';
 import Header from '../Header/Header';
 import Footer from '../Footer/Footer';
+import Nav from '../Nav/Nav';
+import { connect } from "react-redux";
 import axios from 'axios';
 
 
-const FavoriteTrails = () => {
+const FavoriteTrails = ({userId}) => {
 
+  useEffect(() => {
+    axios
+      .get(`http://localhost:8080/api/getFavoriteTrails/${userId}`)
+      .then((res) => {
+        console.log(res.data)
+      })
+  }, []);
 
-
-  // const getAllTrails = () => {
-  //   axios
-  //     .get("/api/getFavoriteTrails")
-  //     .then((res) => {
-  //       console.log(res.data);
-  //     })
-  //     .catch((error) => console.log(error));
-  // }
 
 
   return (
@@ -23,7 +23,9 @@ const FavoriteTrails = () => {
         <div>
             <Header />
         </div>
-          <h2>test</h2>
+        <div>
+          <Nav />
+        </div>
         <div>
             <Footer />
         </div>
@@ -31,4 +33,4 @@ const FavoriteTrails = () => {
   )
 }
 
-export default FavoriteTrails
+export default connect(state => state)(FavoriteTrails);
