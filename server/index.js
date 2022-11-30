@@ -53,33 +53,37 @@ app.delete("/api/deleteNote/:id", async (req, res) => {
   res.sendStatus(200);
 });
 
-// app.put("/api/editNote/:id", async (req, res) => {
-//   await sequelize.query(`
-//   UPDATE trail_notes
-//   SET trail_note = new trail note state
-//   WHERE trail_notes.id = '${req.params.id}'
-//   `);
-// }
+app.put("/api/editNote", async (req, res) => {
+  const { notesId, newTextInput } = req.body
+  await sequelize.query(`
+  UPDATE trail_notes
+  SET trail_note = '${newTextInput}'
+  WHERE trail_notes.id = '${notesId}'
+  `);
+  res.status(200).send(req.body);
+});
 
 app.post("/api/addToFavorites", async (req, res) => {
-  const { userId, trailId } = req.body;
+  const { userId, trailId, trailName } = req.body;
 
   await sequelize.query(`
   insert into favorite_trails (
-    user_id, trail_id
+    user_id, trail_id, trail_name
   ) values (
-    '${userId}', '${trailId}'
+    '${userId}', '${trailId}', '${trailName}'
   )
   `);
   res.sendStatus(200);
 });
 
 app.get("/api/getFavoriteTrails/:userId", async (req, res) => {
+  const { userId } = req.params
   await sequelize.query(`
   SELECT * FROM favorite_trails
-  WHERE user_id = '${req.params.userId}'
+  WHERE user_id = '${userId}'
   `);
-  res.sendStatus(200);
+  res.status(200).send(req.body);
+  
 })
 
 

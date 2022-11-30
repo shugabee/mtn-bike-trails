@@ -49,7 +49,8 @@ const TrailInfo = ({ trail, userId }) => {
   const addToFavorite = () => {
     const body = {
       trailId: trail.id,
-      userId 
+      userId,
+      trailName: trail.name
     };
     axios.post("http://localhost:8080/api/addToFavorites", body)
     .then((res) => {
@@ -86,11 +87,6 @@ const TrailInfo = ({ trail, userId }) => {
 
       <section>
         <h4>Notes:</h4>
-        {/* {trailNote.length > 0 &&
-          trailNote.map(({ trail_note }) => (
-            <p key={trail_note}>{trail_note}</p>
-          ))} */}
-
           <NoteList getTrailNote={getTrailNote} notes={trailNote}/>
       </section>
 

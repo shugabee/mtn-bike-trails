@@ -30,7 +30,6 @@ const ProfilePage = () => {
       });
   }, []);
 
-  //get 
 
   return (
     <div>
