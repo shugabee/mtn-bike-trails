@@ -1,0 +1,36 @@
+.mountain-image {
+    height: 500px;
+    width: 100%;
+}
+
+.sign-in-btn-container{
+    margin-top: 60px;
+    padding: 50px 0 50px 0;
+    background-color: rgb(238, 236, 236);
+}
+
+.sign-in-btn {
+    font-size: 29px;
+    height: 65px;
+    width: 30%;
+    margin: 30px;
+    border: solid;
+    border-radius: 15px;
+    background-color: #bec3bf;
+    color:rgb(9, 35, 7);
+    transition-duration: 0.2s;
+}
+
+.sign-in-btn:hover {
+    background-color: darkgray;
+}
+
+.map-image-container {
+    height: 450px;
+}
+
+.map-image {
+    padding-top: 65px;
+    height: 320px;
+    width: 500px;
+}

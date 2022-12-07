@@ -1,7 +1,7 @@
 header {
   height: 90px;
-  background-color: #152C08;
-  opacity: .78;
+  background-color: #65826c;
+  /* opacity: .78; */
   font-size: 50px;
   color: #DDDFDC;
   text-align: center;
@@ -11,4 +11,17 @@ header {
   position: absolute;
   top: 30px;
   right: 10px;
+}
+
+.bike-img {
+  height: 70px;
+  float: left;
+  padding-top: 5px;
+  padding-left: 5px;
+}
+
+.page-name-link {
+  text-decoration: none;
+  color: rgb(210, 193, 148);
+  font-weight: 500;
 }

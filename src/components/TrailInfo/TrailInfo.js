@@ -5,6 +5,7 @@ import { connect } from "react-redux";
 import "./TrailInfo.css";
 import { AiFillHeart } from "react-icons/ai";
 import { BiListPlus } from "react-icons/bi";
+import { BsHeart } from "react-icons/bs";
 
 
 
@@ -65,10 +66,16 @@ const TrailInfo = ({ trail, userId }) => {
 
   return (
     <div className="trail-info">
+
+      <div className="heart-button">
+          <BsHeart size="22px" onClick={addToFavorite} />
+      </div>
+
       <h2>{trail.name}</h2>
       <h5>
         {trail.city}, {trail.region}
       </h5>
+      
       {/* <h6>{trail.description}</h6>  */}
       <img src="" alt="" />
 
@@ -91,15 +98,15 @@ const TrailInfo = ({ trail, userId }) => {
       </section>
 
         
-      <div>
-      <button onClick={addToFavorite}>
+      {/* <div className="button-container">
+      <button className="heart-button" onClick={addToFavorite}>
         <AiFillHeart />
       </button>
       <button>
         <BiListPlus />
       </button>
-       
-      </div>
+      </div> */}
+
     </div>
   );
 };

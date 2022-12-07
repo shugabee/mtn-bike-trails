@@ -1,0 +1,49 @@
+.register-container {
+    height: 80vh;
+    width: 50vw;
+    margin: auto;
+    margin-top: 100px;
+    margin-bottom: 100px;
+    border: solid;
+    background-color: rgb(238, 236, 236);
+    /* margin: 100px 0 100px 0; */
+    display: flex;
+    flex-direction: column;
+}
+
+h3 {
+    font-size: 35px;
+    color: #242424; 
+}
+
+.login-form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    /* border: solid; */
+    /* margin-left: 280px;
+    margin-right: 280px; */
+    margin: auto;
+    margin-top: 35px;
+    /* padding: 20px; */
+    gap: 15px;
+    font-size: 30px;
+    color: #242424;
+}
+
+.register-input-box {
+    width: 200px;
+    padding: 12px 20px;
+}
+
+.register-form-submit-btn {
+    width: 100px;
+    height: 35px;
+    border-radius: 10px;
+    background-color: #bec3bf;
+    font-size: 17px;
+}
+
+.register-form-submit-btn:hover {
+    background-color: darkgrey; 
+}

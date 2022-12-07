@@ -41,7 +41,7 @@ const ProfilePage = () => {
       </div>
 
       <div className="profile-page-title-container">
-        <h4>Profile Page</h4>
+        <h3>Profile Page</h3>
       </div>
 
       <div className="trail-container">

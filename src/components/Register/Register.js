@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import Header from "../Header/Header";
 import Footer from "../Footer/Footer";
 import axios from 'axios';
+import "./Register.css";
 
 const Register = () => {
   const [username, setUserName] = useState("");
@@ -36,7 +37,9 @@ const Register = () => {
       <div>
         <Header />
       </div>
-      <h2>Register</h2>
+
+      <div className="register-container">
+      <h3>Register</h3>
       <form className="login-form" onSubmit={register}>
         
           <label>Username</label>
@@ -61,9 +64,11 @@ const Register = () => {
           />
         
         <div>
-          <button type="submit">Register</button>
+          <button className= "register-form-submit-btn" type="submit">Register</button>
         </div>
       </form>
+      </div>
+
       <div>
         <Footer />
       </div>

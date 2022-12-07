@@ -1,26 +1,29 @@
 import React from "react";
 import { Link } from "react-router-dom";
-
+import "./Nav.css";
 
 const Nav = () => {
   return (
-    <nav>
-        <Link to="/profilePage">
-            <button>
+    <nav className="nav-container">
+        <Link className="nav-link" to="/profilePage">
+            {/* <button>
                 Profile Page
-            </button>
+            </button> */}
+            Profile Page
         </Link>
 
-        <Link to="/favoriteTrails">
-            <button>
+        <Link className="nav-link" to="/favoriteTrails">
+            {/* <button>
                 Favorite Trails
-            </button>
+            </button> */}
+            Favorite Trails
         </Link>
 
-        <Link to="/trailsToTry">
-             <button>
+        <Link className="nav-link" to="/trailsToTry">
+             {/* <button>
                 To do list
-            </button>
+            </button> */}
+            To Do List
         </Link>
     </nav>
   )

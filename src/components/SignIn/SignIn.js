@@ -5,6 +5,7 @@ import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import { connect } from 'react-redux';
 import { setUserId } from "../../redux/userReducer";
+import "./SignIn.css";
 
 
 const SignIn = ({setUserId}) => {
@@ -42,11 +43,14 @@ const SignIn = ({setUserId}) => {
       <div>
         <Header />
       </div>
-      <h2>Sign In</h2>
+
+      <div className="signin-container">
+      <h3>Sign In</h3>
       <form className="login-form" onSubmit={handleSignIn}>
+
         <label>Username</label>
         <input
-          className="register-input-box"
+          className="signin-input-box"
           placeholder="Username"
           type="text"
           name="username"
@@ -56,7 +60,7 @@ const SignIn = ({setUserId}) => {
 
         <label>Password</label>
         <input
-          className="register-input-box"
+          className="signin-input-box"
           placeholder="Password"
           type="password"
           name="password"
@@ -65,9 +69,11 @@ const SignIn = ({setUserId}) => {
         />
 
         <div>
-          <button type="submit">Sign In</button>
+          <button className="signin-form-submit-btn" type="submit">Sign In</button>
         </div>
       </form>
+      </div>
+
       <div>
         <Footer />
       </div>
