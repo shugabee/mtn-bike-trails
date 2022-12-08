@@ -1,12 +1,15 @@
 .mountain-image {
-    height: 500px;
-    width: 100%;
+    background-size: cover;
+    background-position: center center;
+    background-image: url(https://drive.google.com/uc?export=view&id=1ZhY97l__urMMcUDt42DAlIjIkAwLxRKq);
+    min-height: 400px;
 }
 
+
 .sign-in-btn-container{
-    margin-top: 60px;
-    padding: 50px 0 50px 0;
-    background-color: rgb(238, 236, 236);
+    margin-top: 90px;
+    padding: 80px 0 80px 0;
+    background-color: rgb(234, 234, 234);
 }
 
 .sign-in-btn {
@@ -16,21 +19,22 @@
     margin: 30px;
     border: solid;
     border-radius: 15px;
-    background-color: #bec3bf;
+    background-color: #b8c9bb;
     color:rgb(9, 35, 7);
     transition-duration: 0.2s;
 }
 
 .sign-in-btn:hover {
     background-color: darkgray;
+    cursor: pointer;
 }
 
 .map-image-container {
-    height: 450px;
+    height: 530px;
 }
 
 .map-image {
-    padding-top: 65px;
-    height: 320px;
-    width: 500px;
+    padding-top: 100px;
+    height: 330px;
+    width: 510px;
 }

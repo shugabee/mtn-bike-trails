@@ -2,20 +2,20 @@ import axios from "axios";
 import React, { useState, useEffect } from "react";
 import NoteList from "../NoteList/NoteList";
 import { connect } from "react-redux";
-import "./TrailInfo.css";
-import { AiFillHeart } from "react-icons/ai";
-import { BiListPlus } from "react-icons/bi";
 import { BsHeart } from "react-icons/bs";
+import "./TrailInfo.css";
 
 
 
 const TrailInfo = ({ trail, userId }) => {
   const [textInput, setTextInput] = useState("");
   const [trailNote, setTrailNote] = useState([]);
+  const [iconColor, setIconColor] = useState("");
 
 
   useEffect(() => {
     getTrailNote();
+    showFavoriteTrail();
   }, []);
 
   const handleChangeTextArea = (e) => {
@@ -29,6 +29,13 @@ const TrailInfo = ({ trail, userId }) => {
     });
   };
 
+  const showFavoriteTrail = () => {
+    axios.get(`http://localhost:8080/api/showFavorite/${userId}`)
+      .then((res) => {
+        console.log(res.data)
+      })
+  }
+
   const addNote = () => {
     const body = { 
       trailNote: textInput, 
@@ -38,7 +45,6 @@ const TrailInfo = ({ trail, userId }) => {
     axios
       .post("http://localhost:8080/api/addNote", body)
       .then((res) => {
-        // console.log(res.data);
         getTrailNote();
         setTextInput("");
       })
@@ -57,6 +63,7 @@ const TrailInfo = ({ trail, userId }) => {
     .then((res) => {
       console.log(res.data);
       alert("Your trail was added to favorites!")
+      setIconColor("green");
     })
     .catch((error) => {
       console.log(error);
@@ -66,47 +73,42 @@ const TrailInfo = ({ trail, userId }) => {
 
   return (
     <div className="trail-info">
-
       <div className="heart-button">
-          <BsHeart size="22px" onClick={addToFavorite} />
+        <BsHeart
+          size="22px"
+          style={{ color: iconColor }}
+          onClick={addToFavorite}
+        />
       </div>
 
       <h2>{trail.name}</h2>
       <h5>
         {trail.city}, {trail.region}
       </h5>
-      
+
       {/* <h6>{trail.description}</h6>  */}
       <img src="" alt="" />
 
-      <div>
-        <label>Trail notes:</label>
+      <label>Trail notes:</label>
+      <div className="text-area-container">
         <textarea
           id="note-box"
           name="note-box"
-          rows="3"
+          rows="4"
           cols="30"
           value={textInput}
           onChange={handleChangeTextArea}
         />
-        <button onClick={addNote}>Add Note</button>
+        <div>
+          <button className="add-note-btn" onClick={addNote}>
+            Add Note
+          </button>
+        </div>
       </div>
 
       <section>
-        <h4>Notes:</h4>
-          <NoteList getTrailNote={getTrailNote} notes={trailNote}/>
+        <NoteList getTrailNote={getTrailNote} notes={trailNote} />
       </section>
-
-        
-      {/* <div className="button-container">
-      <button className="heart-button" onClick={addToFavorite}>
-        <AiFillHeart />
-      </button>
-      <button>
-        <BiListPlus />
-      </button>
-      </div> */}
-
     </div>
   );
 };

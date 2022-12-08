@@ -1,13 +1,14 @@
 .trail-info {
-    background-color: #F5F5F5;
+    background-color: rgb(234, 234, 234);
     min-height: 400px;
-    width: 300px;
+    width: 320px;
     padding: 0;
     display: flex;
     flex-direction: column;
-    border: 2px solid darkgrey;
+    border: 2px solid rgb(101, 101, 101);
     border-radius: 4%;
 }
+
 
 .heart-button {
     display: flex;
@@ -15,9 +16,10 @@
     padding-top: 5px;
 }
 
-/* .heart-button:hover {
+.heart-button:hover {
+    cursor: pointer;
+}
 
-} */
 
 h2 {
     margin-bottom: 0;
@@ -28,8 +30,18 @@ h5 {
     margin-bottom: 50px;
 }
 
-/* .button-container {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-} */
+#note-box {
+    border: solid rgb(112, 111, 111) 2px;
+    border-radius: 10px;
+}
+
+.add-note-btn {
+    border-radius: 10px;
+    background-color: #b8c9bb;
+}
+
+.add-note-btn:hover {
+    background-color: darkgray;
+    cursor: pointer;
+}
+

@@ -35,13 +35,20 @@ app.post("/api/addNote", async (req, res) => {
 });
 
 app.get("/api/getNote/:id/:userId", async (req, res) => {
-  console.log(req.params)
   const notes = await sequelize.query(`
   select * from trail_notes
   where trail_id = '${req.params.id}'
   AND user_id = '${req.params.userId}'
   `);
   res.status(200).send(notes[0]);
+});
+
+app.get("/api/showFavorite/:id", async (req, res) => {
+  const favorite = await sequelize.query(`
+  SELECT * from favorite_trails
+  WHERE user_id = '${req.params.id}'
+  `);
+  res.status(200).send(favorite[0])
 });
 
 app.delete("/api/deleteNote/:id", async (req, res) => {
