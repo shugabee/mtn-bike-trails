@@ -12,7 +12,6 @@ const TrailInfo = ({ trail, userId }) => {
   const [trailNote, setTrailNote] = useState([]);
   const [iconColor, setIconColor] = useState("");
 
-
   useEffect(() => {
     getTrailNote();
     showFavoriteTrail();
@@ -32,7 +31,7 @@ const TrailInfo = ({ trail, userId }) => {
   const showFavoriteTrail = () => {
     axios.get(`http://localhost:8080/api/showFavorite/${userId}`)
       .then((res) => {
-        console.log(res.data)
+        // console.log(res.data)
       })
   }
 
@@ -57,7 +56,9 @@ const TrailInfo = ({ trail, userId }) => {
     const body = {
       trailId: trail.id,
       userId,
-      trailName: trail.name
+      trailName: trail.name,
+      trailCity: trail.city,
+      trailRegion: trail.region
     };
     axios.post("http://localhost:8080/api/addToFavorites", body)
     .then((res) => {
