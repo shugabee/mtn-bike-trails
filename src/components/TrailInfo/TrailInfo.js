@@ -50,6 +50,7 @@ const TrailInfo = ({ trail, userId }) => {
       .catch((error) => {
         console.log(error);
       });
+      document.getElementsByClassName("note").reset();
   };
 
   const addToFavorite = () => {
@@ -94,6 +95,7 @@ const TrailInfo = ({ trail, userId }) => {
       <div className="text-area-container">
         <textarea
           id="note-box"
+          className="note"
           name="note-box"
           rows="4"
           cols="30"
@@ -101,7 +103,7 @@ const TrailInfo = ({ trail, userId }) => {
           onChange={handleChangeTextArea}
         />
         <div>
-          <button className="add-note-btn" onClick={addNote}>
+          <button type="button" className="add-note-btn" onClick={addNote}>
             Add Note
           </button>
         </div>

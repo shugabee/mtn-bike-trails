@@ -1,8 +1,14 @@
 .main-footer {
   bottom: 0;
   width: 100%;
-  height: 400px;
-  background-color: #65826c;
+  height: 100%;
+  background-color: #435249;
+  /* background-color: #33463b; */
+
   /* opacity: .78; */
+}
+
+.footer-image {
+  width: 100%;
 }
 
