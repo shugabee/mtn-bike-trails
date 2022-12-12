@@ -7,7 +7,8 @@ const Note = ({ notes, getTrailNote }) => {
   const [isEditing, setIsEditing] = useState(false);
   const [newTextInput, setNewTextInput] = useState("");
 
-  console.log("notes", notes);
+  // console.log("notes", notes);
+  // console.log("N", notes[0].trail_note);
 
   const editNote = () => {
     const body = {

@@ -11,16 +11,28 @@
     background-color: #dde0d760;
 }
 
+@media screen and (max-width: 480px) {
+    .sign-in-btn-container {
+        width: 100%;
+    }
+}
+
 .sign-in-btn {
     font-size: 35px;
-    height: 70px;
-    width: 25%;
+    height: 11vh;
+    width: 40%;
     margin: 30px;
     border: solid;
     border-radius: 10px;
     background-color: #B7C1C0;
     color:rgb(9, 35, 7);
     transition-duration: 0.2s;
+}
+
+@media screen and (max-width: 390px) {
+    .sign-in-btn {
+        font-size: 8vw;
+    }
 }
 
 .sign-in-btn:hover {
@@ -34,6 +46,7 @@
 
 .map-image {
     padding-top: 160px;
-    height: 360px;
-    /* width: 510px; */
+    height: 50vh;
+    width: 60vw;
 }
+

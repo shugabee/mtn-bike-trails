@@ -1,6 +1,7 @@
 header {
   height: 93px;
   background-color: #435249;
+  text-align: center;
   /* opacity: .78; */
   /* display: flex;
   flex-wrap: nowrap;
@@ -18,11 +19,15 @@ header {
 
 .page-name-link {
   text-decoration: none;
-  color: #dcd4c0;
-  font-size: 50px;
-  font-weight: 500;
-  /* margin: auto; */
-  padding: 0px 0px 0px 0px;
+ 
+}
+
+.page-title {
   text-align: center;
-  /* flex-grow: .8; */
+  margin: auto;
+  font-weight: 500px;
+  color: #dcd4c0;
+  vertical-align: middle;
+  padding-top: 25px;
+  padding-right: 90px;
 }

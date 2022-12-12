@@ -11,7 +11,9 @@ const Header = () => {
         alt="bike-logo-pic"
       />
       <Link className="page-name-link" to="/">
-        Main Page
+        <h1 className='page-title'>
+          Main Page
+          </h1>
       </Link>
     </header>
   );

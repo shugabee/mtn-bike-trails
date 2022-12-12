@@ -9,6 +9,13 @@
     border-radius: 4%;
 }
 
+@media screen and (max-width: 420px) {
+    .trail-info {
+        width: 80%;
+        height: 80%;
+    }
+}
+
 
 .heart-button {
     display: flex;

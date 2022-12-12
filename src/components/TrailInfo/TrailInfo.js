@@ -25,6 +25,7 @@ const TrailInfo = ({ trail, userId }) => {
     // console.log(userId)
     axios.get(`http://localhost:8080/api/getNote/${trail.id}/${userId}`).then((res) => {
       setTrailNote(res.data);
+      console.log("frontend", res.data);
     });
   };
 
@@ -50,7 +51,6 @@ const TrailInfo = ({ trail, userId }) => {
       .catch((error) => {
         console.log(error);
       });
-      document.getElementsByClassName("note").reset();
   };
 
   const addToFavorite = () => {

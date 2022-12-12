@@ -41,6 +41,7 @@ app.get("/api/getNote/:id/:userId", async (req, res) => {
   AND user_id = '${req.params.userId}'
   `);
   res.status(200).send(notes[0]);
+  console.log("backend", notes);
 });
 
 app.get("/api/showFavorite/:id", async (req, res) => {
