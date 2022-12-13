@@ -2,19 +2,16 @@ header {
   height: 93px;
   background-color: #435249;
   text-align: center;
-  /* opacity: .78; */
-  /* display: flex;
-  flex-wrap: nowrap;
-  align-items: center; */
-  /* justify-content: space-between;
-  align-content: flex-start;
-  text-align: center; */
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .bike-img {
+  position: absolute;
+  left: 0;
   height: 85px;
-  float: left;
-  padding-top: 7px;
+  top: 7px;
 }
 
 .page-name-link {
@@ -28,6 +25,4 @@ header {
   font-weight: 500px;
   color: #dcd4c0;
   vertical-align: middle;
-  padding-top: 25px;
-  padding-right: 90px;
 }

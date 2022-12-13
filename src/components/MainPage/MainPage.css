@@ -19,8 +19,8 @@
 
 .sign-in-btn {
     font-size: 35px;
-    height: 11vh;
-    width: 40%;
+    height: 8vh;
+    width: 30%;
     margin: 30px;
     border: solid;
     border-radius: 10px;
@@ -45,8 +45,8 @@
 }
 
 .map-image {
-    padding-top: 160px;
-    height: 50vh;
-    width: 60vw;
+    padding-top: 140px;
+    height: 33vh;
+    width: 50vw;
 }
 

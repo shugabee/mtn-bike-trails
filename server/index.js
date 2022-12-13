@@ -41,13 +41,13 @@ app.get("/api/getNote/:id/:userId", async (req, res) => {
   AND user_id = '${req.params.userId}'
   `);
   res.status(200).send(notes[0]);
-  console.log("backend", notes);
 });
 
-app.get("/api/showFavorite/:id", async (req, res) => {
+app.get("/api/showFavorite/:id/:trailId", async (req, res) => {
   const favorite = await sequelize.query(`
   SELECT * from favorite_trails
   WHERE user_id = '${req.params.id}'
+  AND trail_id = '${req.params.trailId}'
   `);
   res.status(200).send(favorite[0])
 });

@@ -25,14 +25,16 @@ const TrailInfo = ({ trail, userId }) => {
     // console.log(userId)
     axios.get(`http://localhost:8080/api/getNote/${trail.id}/${userId}`).then((res) => {
       setTrailNote(res.data);
-      console.log("frontend", res.data);
     });
   };
 
   const showFavoriteTrail = () => {
-    axios.get(`http://localhost:8080/api/showFavorite/${userId}`)
+    axios.get(`http://localhost:8080/api/showFavorite/${userId}/${trail.id}`)
       .then((res) => {
-        // console.log(res.data)
+        console.log(res.data.length)
+        if (res.data.length > 0) {
+          setIconColor("red")
+        }
       })
   }
 
@@ -65,7 +67,7 @@ const TrailInfo = ({ trail, userId }) => {
     .then((res) => {
       console.log(res.data);
       alert("Your trail was added to favorites!")
-      setIconColor("green");
+      setIconColor("red");
     })
     .catch((error) => {
       console.log(error);

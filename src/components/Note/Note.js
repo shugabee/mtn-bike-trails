@@ -3,16 +3,16 @@ import axios from "axios";
 import { AiOutlineEdit, AiOutlineDelete } from "react-icons/ai";
 import "./Note.css";
 
-const Note = ({ notes, getTrailNote }) => {
+const Note = ({ note, getTrailNote }) => {
   const [isEditing, setIsEditing] = useState(false);
-  const [newTextInput, setNewTextInput] = useState("");
+  const [newTextInput, setNewTextInput] = useState(note.trail_note);
 
   // console.log("notes", notes);
   // console.log("N", notes[0].trail_note);
 
   const editNote = () => {
     const body = {
-      notesId: notes[0].id,
+      notesId: note.id,
       newTextInput,
     };
     axios
@@ -31,7 +31,7 @@ const Note = ({ notes, getTrailNote }) => {
 
   const deleteNote = () => {
     axios
-      .delete(`http://localhost:8080/api/deleteNote/${notes[0].id}`)
+      .delete(`http://localhost:8080/api/deleteNote/${note.id}`)
       .then((res) => {
         getTrailNote();
         alert("Your note was deleted");
@@ -39,11 +39,16 @@ const Note = ({ notes, getTrailNote }) => {
       .catch((error) => console.log(error));
   };
 
+  const formattedDate = new Date (note.date)
+  const month = formattedDate.getMonth() + 1
+  const date = formattedDate.getDate()
+  const year = formattedDate.getFullYear()
+
   return (
     <div className="comment-parent-container">
       <div className="comment-container">
         <div className="header">
-          <span className="date">{notes[0].date}</span>
+          <span className="date">{`${month}-${date}-${year}`}</span>
         </div>
         {isEditing ? (
           <div>
@@ -54,13 +59,12 @@ const Note = ({ notes, getTrailNote }) => {
               cols="20"
               value={newTextInput}
               onChange={handleChangeTextArea}
-              // placeholder={notes[0].trail_note}
             />
 
             <button onClick={editNote}>update</button>
           </div>
         ) : (
-          <p>{notes[0].trail_note}</p>
+          <p>{note.trail_note}</p>
         )}
       </div>
 
