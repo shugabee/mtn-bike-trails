@@ -1,15 +1,14 @@
 import React from 'react'
 import Note from '../Note/Note';
+import "./NoteList.css"
 
 const NoteList = ({ notes, getTrailNote }) => {
     
   return (
-    <div>
+    <div className='notes-container'>
         {notes.length > 0 && 
           notes.map((note) => {
             return <Note 
-            // key={trail_note.id} trail_note={trail_note} 
-            // key= {datetime} datetime={datetime}
             key={notes} note={note} getTrailNote={getTrailNote}
             />;
           })

@@ -7,18 +7,15 @@ const Note = ({ note, getTrailNote }) => {
   const [isEditing, setIsEditing] = useState(false);
   const [newTextInput, setNewTextInput] = useState(note.trail_note);
 
-  // console.log("notes", notes);
-  // console.log("N", notes[0].trail_note);
-
   const editNote = () => {
     const body = {
       notesId: note.id,
-      newTextInput,
+      newTextInput
     };
     axios
       .put(`http://localhost:8080/api/editNote`, body)
       .then((res) => {
-        // console.log(res.data);
+        console.log("new",res.data);
         setIsEditing((prev) => !prev);
         getTrailNote();
       })
@@ -55,13 +52,14 @@ const Note = ({ note, getTrailNote }) => {
             <textarea
               id="new-note-box"
               name="new-note-box"
-              rows="2"
-              cols="20"
+              rows="4"
+              cols="30"
               value={newTextInput}
               onChange={handleChangeTextArea}
             />
-
-            <button onClick={editNote}>update</button>
+            <div>
+            <button className="update-btn" onClick={editNote}>update</button>
+            </div>
           </div>
         ) : (
           <p>{note.trail_note}</p>

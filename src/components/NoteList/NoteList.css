@@ -1,0 +1,8 @@
+.notes-container {
+    overflow-y: auto;
+    max-height: 200px;
+    background-color: rgba(236, 243, 238, 0.556);
+    margin: 10px;
+    border: 1px solid black;
+    border-radius: 10px;
+}

@@ -2,7 +2,7 @@ import axios from "axios";
 import React, { useState, useEffect } from "react";
 import NoteList from "../NoteList/NoteList";
 import { connect } from "react-redux";
-import { BsHeart } from "react-icons/bs";
+import { FaHeart } from "react-icons/fa";
 import "./TrailInfo.css";
 
 
@@ -31,9 +31,8 @@ const TrailInfo = ({ trail, userId }) => {
   const showFavoriteTrail = () => {
     axios.get(`http://localhost:8080/api/showFavorite/${userId}/${trail.id}`)
       .then((res) => {
-        console.log(res.data.length)
         if (res.data.length > 0) {
-          setIconColor("red")
+          setIconColor("brown")
         }
       })
   }
@@ -67,7 +66,7 @@ const TrailInfo = ({ trail, userId }) => {
     .then((res) => {
       console.log(res.data);
       alert("Your trail was added to favorites!")
-      setIconColor("red");
+      setIconColor("darkgreen");
     })
     .catch((error) => {
       console.log(error);
@@ -78,7 +77,7 @@ const TrailInfo = ({ trail, userId }) => {
   return (
     <div className="trail-info">
       <div className="heart-button">
-        <BsHeart
+        <FaHeart
           size="22px"
           style={{ color: iconColor }}
           onClick={addToFavorite}
@@ -89,9 +88,7 @@ const TrailInfo = ({ trail, userId }) => {
       <h5>
         {trail.city}, {trail.region}
       </h5>
-
-      {/* <h6>{trail.description}</h6>  */}
-      <img src="" alt="" />
+      <h6>Distance: {trail.length} miles</h6>
 
       <label>Trail notes:</label>
       <div className="text-area-container">

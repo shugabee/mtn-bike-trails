@@ -69,6 +69,7 @@ app.put("/api/editNote", async (req, res) => {
   WHERE trail_notes.id = '${notesId}'
   `);
   res.status(200).send(req.body);
+  console.log("PUT", req.body)
 });
 
 app.post("/api/addToFavorites", async (req, res) => {

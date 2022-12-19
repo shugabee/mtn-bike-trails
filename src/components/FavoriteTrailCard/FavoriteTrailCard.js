@@ -35,8 +35,8 @@ const FavoriteTrailCard = ({favTrail, userId}) => {
         />
       </div>
 
-      <h2>{favTrail.trail_name}</h2>
-      <h5>
+      <h2 className='fav-trail-h2'>{favTrail.trail_name}</h2>
+      <h5 className='fav-trail-h5'>
         {favTrail.trail_city}, {favTrail.trail_region}
       </h5>
 

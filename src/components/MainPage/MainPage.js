@@ -19,7 +19,7 @@ const MainPage = () => {
 
       <div className="sign-in-btn-container">
         <div>
-          <Link to="/signIn">
+          <Link to="/login">
             <button className="sign-in-btn">Sign In</button>
           </Link>
         </div>

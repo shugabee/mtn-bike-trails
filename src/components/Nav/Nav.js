@@ -5,26 +5,14 @@ import "./Nav.css";
 const Nav = () => {
   return (
     <nav className="nav-container">
-        <Link className="nav-link" to="/profilePage">
-            {/* <button>
-                Profile Page
-            </button> */}
-            Profile Page
+        <Link className="nav-link" to="/profile">
+            My Trails
         </Link>
 
-        <Link className="nav-link" to="/favoriteTrails">
-            {/* <button>
-                Favorite Trails
-            </button> */}
+        <Link className="nav-link" to="/favorites">
             Favorite Trails
         </Link>
 
-        <Link className="nav-link" to="/trailsToTry">
-             {/* <button>
-                To do list
-            </button> */}
-            To Do List
-        </Link>
     </nav>
   )
 }

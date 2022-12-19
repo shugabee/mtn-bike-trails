@@ -30,7 +30,7 @@ const SignIn = ({setUserId}) => {
       .then((res) => {
         console.log(res.data);
         setUserId(res.data.userId);
-        navigate("/profilePage");
+        navigate("/profile");
        
       })
       .catch((error) => {
