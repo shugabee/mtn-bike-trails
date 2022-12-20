@@ -1,8 +1,7 @@
 import React from "react";
-import { Link } from "react-router-dom";
 import Header from "../Header/Header";
 import Footer from "../Footer/Footer";
-// import mountainImage from "./mountainimage.jpeg";
+import { Link } from "react-router-dom";
 import "./MainPage.css";
 
 const MainPage = () => {
@@ -13,8 +12,6 @@ const MainPage = () => {
       </div>
 
       <div className="mountain-image">
-        {/* <img className="mountain-image" src="https://drive.google.com/uc?export=view&id=1ZhY97l__urMMcUDt42DAlIjIkAwLxRKq
-" alt="mountain-picture" /> */}
       </div>
 
       <div className="sign-in-btn-container">

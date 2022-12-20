@@ -1,10 +1,9 @@
 import React, {useState, useEffect} from "react";
+import axios from "axios";
 import Header from "../Header/Header";
 import Footer from "../Footer/Footer";
 import TrailInfo from "../TrailInfo/TrailInfo";
 import Nav from "../Nav/Nav";
-import { Link } from "react-router-dom";
-import axios from "axios";
 import "./ProfilePage.css";
 
 const { REACT_APP_API_KEY } = process.env;

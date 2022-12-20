@@ -12,7 +12,7 @@ const Header = () => {
       />
       <Link className="page-name-link" to="/">
         <h1 className='page-title'>
-          Main Page
+          Trail Tracks
           </h1>
       </Link>
     </header>

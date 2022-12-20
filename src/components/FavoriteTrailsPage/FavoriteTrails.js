@@ -1,10 +1,10 @@
 import React, { useState, useEffect } from 'react';
+import axios from 'axios';
 import Header from '../Header/Header';
 import Footer from '../Footer/Footer';
 import Nav from '../Nav/Nav';
 import FavoriteTrailCard from '../FavoriteTrailCard/FavoriteTrailCard';
 import { connect } from "react-redux";
-import axios from 'axios';
 import "./FavoriteTrails.css";
 
 
@@ -22,14 +22,11 @@ const FavoriteTrails = ({userId}) => {
   const addNote = () => {
     const body = {
       trailNote: textInput,
-      // trailId: trail.id,
       userId,
     };
     axios
       .post("http://localhost:8080/api/addNote", body)
       .then((res) => {
-        // console.log(res.data);
-        // getTrailNote();
         setTextInput("");
       })
       .catch((error) => {

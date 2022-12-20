@@ -2,11 +2,14 @@ import React, { useState } from "react";
 import Header from "../Header/Header";
 import Footer from "../Footer/Footer";
 import axios from 'axios';
+// import { useNavigate } from "react-router-dom";
+
 import "./Register.css";
 
 const Register = () => {
   const [username, setUserName] = useState("");
   const [password, setPassword] = useState("");
+  // const navigate = useNavigate();
 
 
   const changeHandlerUsername = (event) => {
@@ -26,6 +29,7 @@ const Register = () => {
           console.log(res.data);
           setUserName("");
           setPassword("");
+          // navigate("/profile");
         })
         .catch((error) => {
           alert(error, "could not register");

@@ -1,9 +1,8 @@
 import React, { useState, useEffect } from "react";
-import NoteList from "../NoteList/NoteList";
-import { BsHeart } from "react-icons/bs";
-import "./FavoriteTrailCard.css";
 import axios from "axios";
+import { BsHeart } from "react-icons/bs";
 import { connect } from "react-redux";
+import "./FavoriteTrailCard.css";
 
 const FavoriteTrailCard = ({ favTrail, userId }) => {
   const [textInput, setTextInput] = useState("");
@@ -53,26 +52,6 @@ const FavoriteTrailCard = ({ favTrail, userId }) => {
       </h5>
       <h6 className="fav-trail-h6">Distance: {favTrail.trail_length} miles</h6>
 
-      {/* <label>Trail notes:</label>
-      <div className="text-area-container">
-        <textarea
-          id="note-box"
-          name="note-box"
-          rows="4"
-          cols="30"
-          value={textInput}
-          onChange={handleChangeTextArea}
-        />
-        <div>
-          <button className="add-note-btn" onClick={addNote}>
-            Add Note
-          </button>
-        </div>
-      </div> */}
-
-      {/* <section>
-        <NoteList getTrailNote={getTrailNote} notes={trailNote} />
-      </section> */}
     </div>
   );
 };

@@ -5,8 +5,6 @@ import { connect } from "react-redux";
 import { FaRegHeart } from "react-icons/fa";
 import "./TrailInfo.css";
 
-
-
 const TrailInfo = ({ trail, userId }) => {
   const [textInput, setTextInput] = useState("");
   const [trailNote, setTrailNote] = useState([]);
