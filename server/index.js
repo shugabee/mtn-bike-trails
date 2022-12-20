@@ -73,14 +73,23 @@ app.put("/api/editNote", async (req, res) => {
 });
 
 app.post("/api/addToFavorites", async (req, res) => {
-  const { userId, trailId, trailName, trailCity, trailRegion } = req.body;
+  const { userId, trailId, trailName, trailCity, trailRegion, trailLength } = req.body;
 
   await sequelize.query(`
   insert into favorite_trails (
-    user_id, trail_id, trail_name, trail_city, trail_region
+    user_id, trail_id, trail_name, trail_city, trail_region, trail_length
   ) values (
-    '${userId}', '${trailId}', '${trailName}', '${trailCity}', '${trailRegion}'
+    '${userId}', '${trailId}', '${trailName}', '${trailCity}', '${trailRegion}', '${trailLength}'
   )
+  `);
+  res.sendStatus(200);
+});
+
+app.delete("/api/deleteFavorite/:id", async (req, res) => {
+  await sequelize.query(`
+  DELETE
+  FROM favorite_trails
+  WHERE favorite_trails.id = '${req.params.id}'
   `);
   res.sendStatus(200);
 });

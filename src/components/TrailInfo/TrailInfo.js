@@ -2,7 +2,7 @@ import axios from "axios";
 import React, { useState, useEffect } from "react";
 import NoteList from "../NoteList/NoteList";
 import { connect } from "react-redux";
-import { FaHeart } from "react-icons/fa";
+import { FaRegHeart } from "react-icons/fa";
 import "./TrailInfo.css";
 
 
@@ -60,13 +60,14 @@ const TrailInfo = ({ trail, userId }) => {
       userId,
       trailName: trail.name,
       trailCity: trail.city,
-      trailRegion: trail.region
+      trailRegion: trail.region,
+      trailLength: trail.length
     };
     axios.post("http://localhost:8080/api/addToFavorites", body)
     .then((res) => {
       console.log(res.data);
       alert("Your trail was added to favorites!")
-      setIconColor("darkgreen");
+      setIconColor("brown");
     })
     .catch((error) => {
       console.log(error);
@@ -77,7 +78,7 @@ const TrailInfo = ({ trail, userId }) => {
   return (
     <div className="trail-info">
       <div className="heart-button">
-        <FaHeart
+        <FaRegHeart
           size="22px"
           style={{ color: iconColor }}
           onClick={addToFavorite}

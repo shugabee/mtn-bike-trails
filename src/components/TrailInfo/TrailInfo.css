@@ -26,14 +26,15 @@
     cursor: pointer;
 }
 
-h5 {
-    margin-bottom: 5px;
-}
-
 h2 {
     margin-top: 0px;
     margin-bottom: 0px;
 }
+
+h5 {
+    margin-bottom: 5px;
+}
+
 
 h6 {
     margin-top: 0px;

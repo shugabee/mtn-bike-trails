@@ -3,14 +3,21 @@
     display: flex;
     flex-direction: row;
     justify-content: space-around;
+    align-items: center;
     background-color: #DDDFDC;
+}
+
+@media screen and (max-width: 412px) {
+    .nav-container {
+        flex-direction: column;
+        padding: 10px;
+    }
 }
 
 .nav-link {
     text-decoration: none;
     color: black;
-    font-size: 20px;
-    padding-top: 6px;
+    font-size: 25px;
 }
 
 .nav-link:hover {

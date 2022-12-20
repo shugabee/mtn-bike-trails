@@ -5,9 +5,8 @@ import Nav from '../Nav/Nav';
 import FavoriteTrailCard from '../FavoriteTrailCard/FavoriteTrailCard';
 import { connect } from "react-redux";
 import axios from 'axios';
-import { AiFillHeart } from "react-icons/ai";
-import { BiListPlus } from "react-icons/bi";
 import "./FavoriteTrails.css";
+
 
 const { REACT_APP_API_KEY } = process.env;
 

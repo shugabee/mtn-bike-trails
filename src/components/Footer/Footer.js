@@ -12,13 +12,7 @@ const Footer = () => {
         <BsApple size={"30px"}/>
         <FaGooglePlay size={"30px"}/>
       </div>
-
-      <div className='footer-info'>
-        <p>About</p>
-        <p>Help</p>
-
-      </div>
-
+      
       <img
         className='footer-image'
         src="https://drive.google.com/uc?export=view&id=1XMbahxL-8meV7x9KnU_9ftj96bGfmA_c"
