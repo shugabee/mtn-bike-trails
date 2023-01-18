@@ -31,7 +31,7 @@ const MainPage = () => {
         <img
           className="map-image"
           src="https://drive.google.com/uc?export=view&id=1u_un1kFmiga6gZGoic3HAmWo2XIY68FQ"
-          alt="map image"
+          alt="picture of map"
         />
       </div>
 

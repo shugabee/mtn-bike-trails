@@ -39,7 +39,7 @@ const ProfilePage = () => {
       </div>
 
       <div className="profile-page-title-container">
-        <h3>My Trails</h3>
+        <h2>My Trails</h2>
       </div>
 
       <div className="trail-container">

@@ -45,12 +45,13 @@ const SignIn = ({setUserId}) => {
       </div>
 
       <div className="signin-container">
-      <h3>Sign In</h3>
+      <h2>Sign In</h2>
       <form className="login-form" onSubmit={handleSignIn}>
 
-        <label>Username</label>
+        <label for="username">Username</label>
         <input
           className="signin-input-box"
+          id="username"
           placeholder="Username"
           type="text"
           name="username"
@@ -58,9 +59,10 @@ const SignIn = ({setUserId}) => {
           onChange={(event) => changeHandlerUsername(event)}
         />
 
-        <label>Password</label>
+        <label for="password">Password</label>
         <input
           className="signin-input-box"
+          id="password"
           placeholder="Password"
           type="password"
           name="password"

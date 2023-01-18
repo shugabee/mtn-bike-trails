@@ -49,6 +49,7 @@ const Note = ({ note, getTrailNote }) => {
         </div>
         {isEditing ? (
           <div>
+            <label for="new-note-box"></label>
             <textarea
               id="new-note-box"
               name="new-note-box"
@@ -58,7 +59,7 @@ const Note = ({ note, getTrailNote }) => {
               onChange={handleChangeTextArea}
             />
             <div>
-            <button className="update-btn" onClick={editNote}>update</button>
+            <button className="update-btn" aria-label="update-note-button" title="update-note-button" onClick={editNote}>update</button>
             </div>
           </div>
         ) : (
@@ -68,12 +69,12 @@ const Note = ({ note, getTrailNote }) => {
 
       <footer className="buttons-container">
         <button
-          onClick={() => setIsEditing((prev) => !prev)}
+          aria-label="edit-note-button" onClick={() => setIsEditing((prev) => !prev)}
           isActive={isEditing}
         >
           <AiOutlineEdit />
         </button>
-        <button onClick={deleteNote}>
+        <button aria-label="delete-note-button" onClick={deleteNote}>
           <AiOutlineDelete />
         </button>
       </footer>

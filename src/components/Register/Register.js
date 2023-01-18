@@ -43,12 +43,13 @@ const Register = () => {
       </div>
 
       <div className="register-container">
-      <h3>Register</h3>
+      <h2>Register</h2>
       <form className="login-form" onSubmit={register}>
         
-          <label>Username</label>
+          <label for="username">Username</label>
           <input 
           className='register-input-box'
+          id="username"
           placeholder= 'Username'
           type='text'
           name='username'
@@ -57,9 +58,10 @@ const Register = () => {
           />
         
     
-          <label>Password</label>
+          <label for="password">Password</label>
           <input 
           className='register-input-box'
+          id="password"
           placeholder='Password'
           type='password' 
           name='password'

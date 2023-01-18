@@ -83,16 +83,16 @@ const TrailInfo = ({ trail, userId }) => {
         />
       </div>
 
-      <h2>{trail.name}</h2>
-      <h5>
+      <h3>{trail.name}</h3>
+      <h4>
         {trail.city}, {trail.region}
-      </h5>
-      <h6>Distance: {trail.length} miles</h6>
+      </h4>
+      <h5>Distance: {trail.length} miles</h5>
 
-      <label>Trail notes:</label>
+      <label for="note-box-input">Trail Notes:</label>
       <div className="text-area-container">
         <textarea
-          id="note-box"
+          id="note-box-input"
           className="note"
           name="note-box"
           rows="4"
@@ -101,7 +101,7 @@ const TrailInfo = ({ trail, userId }) => {
           onChange={handleChangeTextArea}
         />
         <div>
-          <button type="button" className="add-note-btn" onClick={addNote}>
+          <button type="button" value="add-note" className="add-note-btn" onClick={addNote}>
             Add Note
           </button>
         </div>
