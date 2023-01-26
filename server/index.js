@@ -2,7 +2,6 @@ require("dotenv").config();
 const express = require("express");
 const cors = require("cors");
 const app = express();
-const path = require("path");
 const {registerUser, loginUser} = require("./controllers/authController");
 const { addNote, getNote, showFavorite, deleteNote, editNote, addToFavorites, deleteFavortie, getFavoriteTrails } = require("./controllers/trailController");
 
@@ -11,7 +10,6 @@ const { SERVER_PORT } = process.env;
 app.use(express.json());
 app.use(cors());
 
-app.use(express.static(path.join(__dirname, '../build')));
 
 app.post("/api/addNote", addNote)
 app.get("/api/getNote/:id/:userId", getNote)
@@ -30,7 +28,6 @@ app.listen(SERVER_PORT, () =>
   console.log(`Server is running on ${SERVER_PORT}`)
 );
 
-module.exports = app;
 
 
 
