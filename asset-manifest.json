@@ -1,13 +1,13 @@
 {
   "files": {
     "main.css": "/mtn-bike-trails/static/css/main.300585db.css",
-    "main.js": "/mtn-bike-trails/static/js/main.267b7fcd.js",
+    "main.js": "/mtn-bike-trails/static/js/main.e56b5728.js",
     "index.html": "/mtn-bike-trails/index.html",
     "main.300585db.css.map": "/mtn-bike-trails/static/css/main.300585db.css.map",
-    "main.267b7fcd.js.map": "/mtn-bike-trails/static/js/main.267b7fcd.js.map"
+    "main.e56b5728.js.map": "/mtn-bike-trails/static/js/main.e56b5728.js.map"
   },
   "entrypoints": [
     "static/css/main.300585db.css",
-    "static/js/main.267b7fcd.js"
+    "static/js/main.e56b5728.js"
   ]
 }
