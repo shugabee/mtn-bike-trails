@@ -24,7 +24,7 @@ const Register = () => {
     event.preventDefault();
     const user = { username:username, password:password}
       axios
-        .post("http://24.199.113.234:8080/auth/register", user)
+        .post("https://mtn-bike-trail.online/auth/register", user)
         .then((res) => {
           console.log(res.data);
           setUserName("");

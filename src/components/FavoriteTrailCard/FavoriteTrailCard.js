@@ -19,7 +19,7 @@ const FavoriteTrailCard = ({ favTrail, userId }) => {
 
   const getTrailNote = () => {
     axios
-      .get(`http://24.199.113.234:8080/api/getNote/${favTrail.id}/${userId}`)
+      .get(`https://mtn-bike-trail.online/api/getNote/${favTrail.id}/${userId}`)
       .then((res) => {
         setTrailNote(res.data);
       });
@@ -27,7 +27,7 @@ const FavoriteTrailCard = ({ favTrail, userId }) => {
 
   const removeFromFavorite = () => {
     axios
-      .delete(`http://24.199.113.234:8080/api/deleteFavorite/${favTrail.id}`)
+      .delete(`https://mtn-bike-trail.online/api/deleteFavorite/${favTrail.id}`)
       .then((res) => {
         alert("Your trail has been removed form favorites")
         setIconColor("black");

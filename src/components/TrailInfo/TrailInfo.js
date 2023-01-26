@@ -21,13 +21,13 @@ const TrailInfo = ({ trail, userId }) => {
 
   const getTrailNote = () => {
     // console.log(userId)
-    axios.get(`http://24.199.113.234:8080/api/getNote/${trail.id}/${userId}`).then((res) => {
+    axios.get(`https://mtn-bike-trail.online/api/getNote/${trail.id}/${userId}`).then((res) => {
       setTrailNote(res.data);
     });
   };
 
   const showFavoriteTrail = () => {
-    axios.get(`http://24.199.113.234:8080/api/showFavorite/${userId}/${trail.id}`)
+    axios.get(`https://mtn-bike-trail.online/api/showFavorite/${userId}/${trail.id}`)
       .then((res) => {
         if (res.data.length > 0) {
           setIconColor("brown")
@@ -42,7 +42,7 @@ const TrailInfo = ({ trail, userId }) => {
       userId
     };
     axios
-      .post("http://24.199.113.234:8080/api/addNote", body)
+      .post("https://mtn-bike-trail.online/api/addNote", body)
       .then((res) => {
         getTrailNote();
         setTextInput("");
@@ -61,7 +61,7 @@ const TrailInfo = ({ trail, userId }) => {
       trailRegion: trail.region,
       trailLength: trail.length
     };
-    axios.post("http://24.199.113.234:8080/api/addToFavorites", body)
+    axios.post("https://mtn-bike-trail.online/api/addToFavorites", body)
     .then((res) => {
       console.log(res.data);
       alert("Your trail was added to favorites!")
