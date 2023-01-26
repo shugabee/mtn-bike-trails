@@ -25,7 +25,7 @@ const FavoriteTrails = ({userId}) => {
       userId,
     };
     axios
-      .post("http://localhost:8080/api/addNote", body)
+      .post("http://24.199.113.234:8080/api/addNote", body)
       .then((res) => {
         setTextInput("");
       })
@@ -41,7 +41,7 @@ const FavoriteTrails = ({userId}) => {
 
   const getFavoriteTrails = () => {
     axios
-      .get(`http://localhost:8080/api/getFavoriteTrails/${userId}`)
+      .get(`http://24.199.113.234:8080/api/getFavoriteTrails/${userId}`)
       .then((res) => {
         setTrailInfo(res.data)
       });

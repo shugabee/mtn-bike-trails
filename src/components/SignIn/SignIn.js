@@ -26,7 +26,7 @@ const SignIn = ({setUserId}) => {
     event.preventDefault();
     const user = { username:username, password:password };
     axios
-      .post("http://localhost:8080/auth/login", user)
+      .post("http://24.199.113.234:8080/auth/login", user)
       .then((res) => {
         console.log(res.data);
         setUserId(res.data.userId);

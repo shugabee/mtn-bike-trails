@@ -21,13 +21,13 @@ const TrailInfo = ({ trail, userId }) => {
 
   const getTrailNote = () => {
     // console.log(userId)
-    axios.get(`http://localhost:8080/api/getNote/${trail.id}/${userId}`).then((res) => {
+    axios.get(`http://24.199.113.234:8080/api/getNote/${trail.id}/${userId}`).then((res) => {
       setTrailNote(res.data);
     });
   };
 
   const showFavoriteTrail = () => {
-    axios.get(`http://localhost:8080/api/showFavorite/${userId}/${trail.id}`)
+    axios.get(`http://24.199.113.234:8080/api/showFavorite/${userId}/${trail.id}`)
       .then((res) => {
         if (res.data.length > 0) {
           setIconColor("brown")
@@ -42,7 +42,7 @@ const TrailInfo = ({ trail, userId }) => {
       userId
     };
     axios
-      .post("http://localhost:8080/api/addNote", body)
+      .post("http://24.199.113.234:8080/api/addNote", body)
       .then((res) => {
         getTrailNote();
         setTextInput("");
@@ -61,7 +61,7 @@ const TrailInfo = ({ trail, userId }) => {
       trailRegion: trail.region,
       trailLength: trail.length
     };
-    axios.post("http://localhost:8080/api/addToFavorites", body)
+    axios.post("http://24.199.113.234:8080/api/addToFavorites", body)
     .then((res) => {
       console.log(res.data);
       alert("Your trail was added to favorites!")

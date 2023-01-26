@@ -13,7 +13,7 @@ const Note = ({ note, getTrailNote }) => {
       newTextInput
     };
     axios
-      .put(`http://localhost:8080/api/editNote`, body)
+      .put(`http://24.199.113.234:8080/api/editNote`, body)
       .then((res) => {
         console.log("new",res.data);
         setIsEditing((prev) => !prev);
@@ -28,7 +28,7 @@ const Note = ({ note, getTrailNote }) => {
 
   const deleteNote = () => {
     axios
-      .delete(`http://localhost:8080/api/deleteNote/${note.id}`)
+      .delete(`http://24.199.113.234:8080/api/deleteNote/${note.id}`)
       .then((res) => {
         getTrailNote();
         alert("Your note was deleted");
